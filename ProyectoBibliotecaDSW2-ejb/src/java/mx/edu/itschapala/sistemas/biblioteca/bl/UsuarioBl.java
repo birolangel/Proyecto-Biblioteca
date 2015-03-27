@@ -25,27 +25,29 @@ public class UsuarioBl implements UsuarioBlLocal {
     
     @Override
     public boolean registrar(Usuario usuario) {
-        usuarioDao.crear(null);
+        usuarioDao.crear(usuario);
         return true;
     }
 
     @Override
     public boolean eliminar(Usuario usuario) {
-        return true;
+        usuarioDao.remover(usuario);
+        return false;
     }
 
     @Override
     public boolean modificar(Usuario usuario) {
-        return true;
+        usuarioDao.editar(usuario);
+        return false;
     }
 
     @Override
     public List<Usuario> getLista() {
-        return null;
+        return usuarioDao.buscarTodos();
     }
 
     @Override
     public Usuario getPorId(int id) {
-        return null;
+        return usuarioDao.buscarPorId(id);
     }
 }
